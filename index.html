@@ -77,7 +77,7 @@
       <meta name="theme-color" content="#1e2327">
       <link rel="manifest" href="https://github.com/manifest.json" crossOrigin="use-credentials">
    </head>
-   <body class="logged-out env-production min-width-lg">
+   <body class="logged-out env-production min-width-lg"  onload="handlestarfish()">
      
       <div class="position-relative js-header-wrapper ">
          <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
@@ -610,7 +610,7 @@
                            <a class="btn btn-sm empty-icon float-right BtnGroup-item" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:245049852,&quot;originating_url&quot;:&quot;https://github.com/fahad-israr/starfish&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6fa65322f69b2d935062d0701dcc5244088e980a80f53390a5dd12cca59fadb7" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="starfish/find/master.html">Find file</a>
                         </div>
                         <div class="BtnGroup">
-                          <a class="btn btn-sm  btn-primary"    href="starfish/find/master.html" style="background-color: #643ab0;
+                          <a class="btn btn-sm  btn-primary"    href="apt:github.com/fahad-israr/starfish" style="background-color: #643ab0;
                           background-image: linear-gradient(-180deg, #7e55c7 0%, #643ab0 90%);">Open in Starfish</a>
                        </div>
                         <span class="">
@@ -1051,6 +1051,16 @@
          </div>
       </div>
       <div aria-live="polite" class="js-global-screen-reader-notice sr-only"></div>
+   <script>
+      function handlestarfish(){
+         if(!localStorage.getItem("starfish")){
+            navigator.registerProtocolHandler("web+apt",
+                                  "https://fahad-israr.github.io/starfish-demo/?apt=%s",
+                                  "apt");
+            localStorage.setItem("starfish","true");
+         }
+      }
+   </script>
    </body>
    <!-- Mirrored from github.com/fahad-israr/starfish by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Mar 2020 02:17:30 GMT -->
 </html>
